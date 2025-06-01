@@ -1,48 +1,47 @@
 ---
 const services = [
   {
-    name: "Standard Plan",
-    price: "₱20,000",
+    name: "Standard Package",
+    price: "₱25,000",
     period: "system lease",
     features: [
-      "12 devices (tellers/cashiers)",
+      "10 devices (tellers/cashiers) - excluded personnel fee",
       "1 admin device",
-      "Full system access",
-      "Setup support",
-      "QR code transactions",
-      "Automated reports",
-      "Event management tools"
+      "Setup & Tech Support",
+      "Up to 100 Hybrid Accounts (Wallet Based Users)",
+      "QR Code transactions",
+      "Automated Reports and exportable to PDF and can send via email",
+      "Real-time updates"
     ],
     recommended: false
   },
   {
-    name: "Pro Plan",
-    price: "₱30,000",
-    period: "system lease",
+    name: "Pro Package",
+    price: "₱35,000",
+    period: "lease fee",
     features: [
-      "15 devices (tellers/cashiers)",
+      "12 devices (tellers/cashiers) - excluded personnel fee",
+      "4 kiosk device",
       "1 admin device",
-      "Full system access",
-      "Priority support",
-      "QR code transactions",
-      "Advanced reporting",
-      "Complete management suite"
+      "Setup & Tech Support",
+      "Unlimited Hybrid Accounts (Wallet Based Users)",
+      "Automated Reports and exportable to PDF and can send via email",
+      "Real-time updates"
     ],
     recommended: true
   },
   {
-    name: "Custom Enterprise",
-    price: "Custom",
-    period: "flexible pricing",
+    name: "Premium Package",
+    price: "₱50,000",
+    period: "lease fee",
     features: [
-      "Customizable device count",
-      "Multiple admin accounts",
-      "Premium support",
-      "Custom integration options",
-      "Volume-based pricing",
-      "API access available",
-      "Dedicated account manager",
-      "Custom features available"
+      "15 devices (tellers/cashiers) - excluded personnel fee",
+      "10 kiosk device",
+      "1 admin device",
+      "Setup & Tech Support",
+      "Unlimited Hybrid Accounts (Wallet Based Users)",
+      "Automated Reports and exportable to PDF and can send via email",
+      "Real-time updates"
     ],
     recommended: false
   }
@@ -78,8 +77,7 @@ const pricingModels = [
     </p>
     
     <div class="text-center mb-12">
-      <p class="text-gray-600 mb-4">One-time Setup & Support Fee: <span class="font-bold text-black">₱15,000</span></p>
-      <p class="text-sm text-gray-500">Personnel fee: ₱1,000 per person</p>
+      <p class="text-gray-600 mb-4">Personnel fee: <span class="font-bold text-black">₱1,000</span> per person</p>
     </div>
 
     <div class="grid md:grid-cols-3 gap-8 mb-16">
@@ -95,19 +93,20 @@ const pricingModels = [
           
           <div class="text-center mb-8">
             <h3 class="text-2xl font-bold mb-4">{service.name}</h3>
-            <div class="flex items-end justify-center mb-4">
+            <div class="flex flex-col items-center justify-center mb-4">
               <span class="text-4xl font-bold">{service.price}</span>
-              <span class="text-gray-500 ml-2">{service.period}</span>
+              <span class="text-gray-500 text-sm">{service.period}</span>
+              <span class="text-gray-500 text-xs mt-1">+ ₱15,000 one-time setup & support fee</span>
             </div>
           </div>
           
           <ul class="space-y-4 mb-8">
             {service.features.map(feature => (
-              <li class="flex items-center">
-                <svg class="w-5 h-5 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <li class="flex items-start">
+                <svg class="w-5 h-5 text-green-500 mr-3 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
                 </svg>
-                {feature}
+                <span>{feature}</span>
               </li>
             ))}
           </ul>

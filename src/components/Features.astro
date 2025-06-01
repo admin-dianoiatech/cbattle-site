@@ -26,12 +26,12 @@ const features = [
   }
 ];
 ---
-<section class="py-20 bg-gray-50">
+<section class="py-20">
   <div class="container mx-auto px-4">
     <h2 class="text-4xl font-bold text-center mb-16">Why Choose C-Battle?</h2>
     <div class="grid md:grid-cols-3 gap-8">
       {features.map(feature => (
-        <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow">
+        <div class="bg-white/70 backdrop-blur-sm p-8 rounded-xl shadow-lg hover:shadow-xl transition-all hover:bg-white/90">
           <h3 class="text-2xl font-semibold mb-4">{feature.title}</h3>
           <p class="text-gray-600">{feature.description}</p>
         </div>

@@ -1,0 +1,41 @@
+---
+const features = [
+  {
+    title: "Role-Based Access",
+    description: "Three-tier access system with Tellers, Cashiers, and Admins for secure operation management."
+  },
+  {
+    title: "Flexible Betting Options",
+    description: "Choose between Wallet-Based or Cash-Based betting systems with hybrid account support."
+  },
+  {
+    title: "Smart Controls",
+    description: "Pause betting types individually, manage users, events, and matches with ease."
+  },
+  {
+    title: "QR Transactions",
+    description: "Modern QR code support for withdrawals, deposits, and placing bets."
+  },
+  {
+    title: "Comprehensive Reports",
+    description: "Automated, exportable PDF reports for complete event tracking and analysis."
+  },
+  {
+    title: "Event Management",
+    description: "Full suite of tools for managing game events, matches, and user interactions."
+  }
+];
+---
+<section class="py-20 bg-gray-50">
+  <div class="container mx-auto px-4">
+    <h2 class="text-4xl font-bold text-center mb-16">Why Choose C-Battle?</h2>
+    <div class="grid md:grid-cols-3 gap-8">
+      {features.map(feature => (
+        <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow">
+          <h3 class="text-2xl font-semibold mb-4">{feature.title}</h3>
+          <p class="text-gray-600">{feature.description}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

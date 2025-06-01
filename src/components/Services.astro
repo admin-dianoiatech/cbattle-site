@@ -7,10 +7,14 @@ const services = [
     features: [
       "10 devices (tellers/cashiers) - excluded personnel fee",
       "1 admin device",
+      "Setup & Tech Support",
       "Up to 100 Hybrid Accounts (Wallet Based Users)",
       "QR Code transactions",
       "Automated Reports and exportable to PDF and can send via email",
-      "Real-time updates"
+      "Real-time updates",
+      "Up to 50 fights FREE",
+      "51-200 fights: ₱500/fight",
+      "201+ fights: ₱300/fight"
     ],
     recommended: false
   },
@@ -22,9 +26,13 @@ const services = [
       "12 devices (tellers/cashiers) - excluded personnel fee",
       "4 kiosk device",
       "1 admin device",
+      "Setup & Tech Support",
       "Unlimited Hybrid Accounts (Wallet Based Users)",
       "Automated Reports and exportable to PDF and can send via email",
-      "Real-time updates"
+      "Real-time updates",
+      "Up to 50 fights FREE",
+      "51-200 fights: ₱500/fight",
+      "201+ fights: ₱300/fight"
     ],
     recommended: true
   },
@@ -36,9 +44,13 @@ const services = [
       "15 devices (tellers/cashiers) - excluded personnel fee",
       "10 kiosk device",
       "1 admin device",
+      "Setup & Tech Support",
       "Unlimited Hybrid Accounts (Wallet Based Users)",
       "Automated Reports and exportable to PDF and can send via email",
-      "Real-time updates"
+      "Real-time updates",
+      "Up to 50 fights FREE",
+      "51-200 fights: ₱500/fight",
+      "201+ fights: ₱300/fight"
     ],
     recommended: false
   },
@@ -55,39 +67,28 @@ const services = [
       "Custom integration options",
       "API access available",
       "Dedicated account manager",
-      "Custom features based on requirements"
+      "Custom features based on requirements",
+      "Custom fight pricing available"
     ],
     recommended: false
   }
 ];
 
-const pricingModels = [
-  {
-    name: "Fight-Based Fee",
-    description: "Pay based on the number of fights in your event",
-    tiers: [
-      { range: "Up to 50 Fights", price: "FREE" },
-      { range: "51-100 Fights", price: "₱500/fight" },
-      { range: "101-200 Fights", price: "₱400/fight" },
-      { range: "201+ Fights", price: "₱300/fight" }
-    ]
-  },
-  {
-    name: "Commission-Based Option",
-    description: "Pay a percentage of the total pot",
-    tiers: [
-      { range: "Up to ₱1M Total Pot", price: "10% Commission" },
-      { range: "₱1M-2M", price: "9% Commission" },
-      { range: "₱2M+", price: "8% Commission" }
-    ]
-  }
-];
+const commissionModel = {
+  name: "Commission-Based Plan",
+  description: "Alternative pricing based on total commission",
+  tiers: [
+    { range: "Up to ₱1M total commission", price: "20% of total commission" },
+    { range: "₱1M+ to ₱2M commission", price: "15% of total commission" },
+    { range: "₱2M+ commission", price: "10% of total commission" }
+  ]
+};
 ---
 <section class="py-20 bg-white" id="services">
   <div class="container mx-auto px-4">
-    <h2 class="text-4xl font-bold text-center mb-4">Pricing Plans</h2>
+    <h2 class="text-4xl font-bold text-center mb-4">Choose Your Plan</h2>
     <p class="text-xl text-gray-600 text-center mb-8 max-w-2xl mx-auto">
-      Choose your system lease plan and preferred pricing model
+      Select between Package Plan or Commission-Based Plan
     </p>
     
     <div class="text-center mb-12">
@@ -127,7 +128,7 @@ const pricingModels = [
             ))}
           </ul>
           
-          <div class="text-center">
+          <div class="text-center mt-auto">
             <a
               href="#contact"
               class={`inline-block px-6 py-3 rounded-lg font-semibold transition-colors ${
@@ -143,28 +144,17 @@ const pricingModels = [
       ))}
     </div>
 
-    <div class="mb-8 text-center">
-      <h3 class="text-3xl font-bold mb-4">Choose Your Pricing Model</h3>
-      <p class="text-gray-600 max-w-2xl mx-auto">
-        After selecting your system lease plan above, choose one of these pricing models for your events:
-      </p>
-    </div>
-
-    <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-      {pricingModels.map(model => (
-        <div class="bg-white rounded-2xl shadow-lg p-8 border-2 border-gray-100">
-          <h4 class="text-2xl font-bold mb-4 text-center">{model.name}</h4>
-          <p class="text-gray-600 mb-6 text-center">{model.description}</p>
-          <div class="space-y-4">
-            {model.tiers.map(tier => (
-              <div class="flex justify-between items-center py-2 border-b border-gray-100">
-                <span class="font-medium">{tier.range}</span>
-                <span class="text-c-battle-red font-semibold">{tier.price}</span>
-              </div>
-            ))}
+    <div class="max-w-2xl mx-auto bg-white rounded-2xl shadow-lg p-8 border-2 border-gray-100">
+      <h3 class="text-2xl font-bold mb-4 text-center">{commissionModel.name}</h3>
+      <p class="text-gray-600 mb-6 text-center">{commissionModel.description}</p>
+      <div class="space-y-4">
+        {commissionModel.tiers.map(tier => (
+          <div class="flex justify-between items-center py-2 border-b border-gray-100">
+            <span class="font-medium">{tier.range}</span>
+            <span class="text-c-battle-red font-semibold">{tier.price}</span>
           </div>
-        </div>
-      ))}
+        ))}
+      </div>
     </div>
   </div>
 </section>
